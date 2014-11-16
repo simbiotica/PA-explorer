@@ -16,7 +16,6 @@ define([
     },
 
     getByBounds: function(bounds) {
-      console.log(bounds.getSouthEast(), bounds.getNorthWest());
       var deferred = new $.Deferred();
       this.fetch({
         dataType: 'jsonp',
@@ -24,10 +23,10 @@ define([
           set: 'public',
           from: 0,
           to: 2000,
-          minx: bounds.getSouthEast().lng,
-          miny: bounds.getSouthEast().lat,
-          maxx: bounds.getNorthWest().lng,
-          maxy: bounds.getNorthWest().lat,
+          minx: bounds.getSouthWest().lng,
+          miny: bounds.getSouthWest().lat,
+          maxx: bounds.getNorthEast().lng,
+          maxy: bounds.getNorthEast().lat,
           size: 'medium',
           mapfilter: false
         },
