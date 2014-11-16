@@ -25,7 +25,8 @@ define([
     layers: {
       tiles: {
         weather: {
-          url: 'http://{s}.tile.openweathermap.org/map/precipitation/{z}/{x}/{y}.png'
+          url: 'http://{s}.tile.openweathermap.org/map/precipitation/{z}/{x}/{y}.png',
+          attribution: 'Open Weather Map'
         }
       },
       wms: {
@@ -46,7 +47,7 @@ define([
             CONNECTID: '1c800d25-9c83-43a9-af2f-4d6dfc816d0f',
             format: 'image/png',
             transparent: true,
-            attribution: 'Weather data © 2012 IEM Nexrad'
+            attribution: 'UNEP'
           }
         }
       },
