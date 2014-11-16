@@ -50,8 +50,8 @@ define([
       e.preventDefault();
     },
 
-    setValue: function(value) {
-      this.$el.find('input[type="text"]').val(value);
+    setValue: function(parkData) {
+      this.$el.find('input[type="text"]').val(parkData.name);
     }
 
   });
