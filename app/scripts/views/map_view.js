@@ -43,7 +43,27 @@ define([
         landslides: {
           url: 'http://preview.grid.unep.ch/geoserver/wms',
           options: {
-            layers: 'preview:ml_risk',
+            layers: 'preview:lc_pr',
+            CONNECTID: '1c800d25-9c83-43a9-af2f-4d6dfc816d0f',
+            format: 'image/png',
+            transparent: true,
+            attribution: 'UNEP'
+          }
+        },
+        floods: {
+          url: 'http://preview.grid.unep.ch/geoserver/wms',
+          options: {
+            layers: 'preview:fl_frequency',
+            CONNECTID: '1c800d25-9c83-43a9-af2f-4d6dfc816d0f',
+            format: 'image/png',
+            transparent: true,
+            attribution: 'UNEP'
+          }
+        },
+        flood_risk: {
+          url: 'http://preview.grid.unep.ch/geoserver/wms',
+          options: {
+            layers: 'preview:fl_risk',
             CONNECTID: '1c800d25-9c83-43a9-af2f-4d6dfc816d0f',
             format: 'image/png',
             transparent: true,
