@@ -21,11 +21,16 @@ define([
 
     initialize: function() {
       this.collection = new ParksCollection();
+      this.setListeners();
       this.getData();
     },
 
     render: function() {
       this.$el.html(this.template(this.data));
+    },
+
+    setListeners: function() {
+      Backbone.Events.on('park:info', this.setValue, this);
     },
 
     getData: function(parkId) {
@@ -43,6 +48,10 @@ define([
       var id = this.$el.find(_.str.sprintf('option[value="%s"]', value)).data('id');
       window.location.hash = id;
       e.preventDefault();
+    },
+
+    setValue: function(value) {
+      this.$el.find('input[type="text"]').val(value);
     }
 
   });

@@ -20,7 +20,6 @@ define([
     },
 
     render: function() {
-      console.log(this.data);
       this.$el.html(this.template(this.data));
     },
 
@@ -33,6 +32,7 @@ define([
         .done(_.bind(function(data) {
           this.data = data.toJSON();
           this.render();
+          Backbone.Events.trigger('park:info', this.data);
         }, this));
     }
 

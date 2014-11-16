@@ -87,7 +87,7 @@ module.exports = function(grunt) {
         files: {
           '<%= root.dist %>/styles/main.css': [
             './bower_components/normalize-css/normalize.css',
-            './bower_components/selectize/dist/css/selectize.css',
+            './bower_components/foundation/css/foundation.css',
             '<%= root.tmp %>/styles/{,*/}*.css'
           ]
         }
@@ -101,9 +101,7 @@ module.exports = function(grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= root.app %>/scripts/{,*/}{,*/}*.js',
-        '<%= root.test %>/specs/{,*/}{,*/}*.js',
-        '<%= root.test %>/runner.js'
+        '<%= root.app %>/scripts/{,*/}{,*/}*.js'
       ]
     },
 
