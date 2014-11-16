@@ -1,11 +1,12 @@
 define([
+  'jquery',
   'underscore',
   'backbone',
   'handlebars',
   'models/specie_model',
   'collections/species_collection',
   'text!templates/species_list_tpl.handlebars'
-], function(_, Backbone, Handlebars, SpecieModel, SpeciesCollection, TPL) {
+], function($, _, Backbone, Handlebars, SpecieModel, SpeciesCollection, TPL) {
 
   'use strict';
 
@@ -35,18 +36,28 @@ define([
           this.data = {
             species: collection.toJSON()
           };
-          this.render();
-          // this.getImages();
+          this.getImages()
+            .done(_.bind(function() {
+              console.log(this.data);
+              this.render();
+            }, this));
         }, this));
     },
 
     getImages: function() {
-      _.each(this.data.species, function(specie) {
+      var deferred = new $.Deferred();
+      var len = this.data.species.length;
+      _.each(this.data.species, function(specie, index) {
         this.model.getById(specie.iucn_species_id)
           .done(_.bind(function(data) {
-            console.log(data);
+            var medias = data.toJSON().dataObjects;
+            specie.media = medias.length > 0 ? _.findWhere(medias, {mimeType: 'image/jpeg'}) : null;
+            if (len -1 === index) {
+              deferred.resolve();
+            }
           }, this));
       }, this);
+      return deferred.promise();
     }
 
   });

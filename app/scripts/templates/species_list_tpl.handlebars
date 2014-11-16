@@ -2,8 +2,12 @@
   {{#each species}}
     <li>
       <div>
-      <h2>{{commonname}}</h2>
-      <h3>{{taxon}}</h3>
+        {{!-- <img src="{{media.eolMediaURL}}"> --}}
+        {{if media}}
+          <img class="th" src="{{media.eolThumbnailURL}}">
+        {{/if}}
+        <h3>{{commonname}}</h3>
+        <p>{{taxon}}</p>
       </div>
     </li>
   {{/each}}

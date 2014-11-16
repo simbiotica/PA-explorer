@@ -16,9 +16,11 @@ define([
       var deferred = new $.Deferred();
       this.currentSpecieId = specieId;
       this.fetch({
+        dataType: 'jsonp',
         data: {
-          images: 1,
-          licenses: 'pd',
+          images: 2,
+          licenses: 'all',
+          details: 'true',
           key: '1051166820dcea062843748c4e4d04ac92f67358'
         },
         success: deferred.resolve,

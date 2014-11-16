@@ -19,7 +19,8 @@ define([
     },
 
     basemap: {
-      url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+      url: 'https://{s}.tiles.mapbox.com/v4/smbtc.k86mffol/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic21idGMiLCJhIjoiVXM4REppNCJ9.pjaLujYj-fcCPv5evG_0uA#4/34.38/-5.98'
+      // url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
     },
 
     layers: {
@@ -152,7 +153,7 @@ define([
     },
 
     fitBounds: function(parkId) {
-      var query, geojsonLayer;
+      var query, geojsonLayer, bounds;
       this.currentParkId = parkId;
       this.model.getByParkId(parkId)
         .done(_.bind(function(parkData) {
@@ -160,8 +161,10 @@ define([
           this.sql.execute(query)
             .done(_.bind(function(boundsGeoJSONData) {
               geojsonLayer = L.geoJson(JSON.parse(boundsGeoJSONData.rows[0].bounds));
-              this.map.fitBounds(geojsonLayer.getBounds());
+              bounds = geojsonLayer.getBounds();
+              this.map.fitBounds(bounds);
               this.setCartoDBLayer('protected_areas');
+              Backbone.Events.trigger('park:bounds', bounds);
             }, this));
         }, this));
     }
