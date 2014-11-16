@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PA Explorer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="">
+    <!-- <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png"> -->
+    <!-- build:css(.tmp) styles/main.css -->
+      <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+      <link rel="stylesheet" href="bower_components/foundation/css/foundation.css">
+      <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+  </head>
+  <body>
+
+    <header class="l-header">
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="#">Yellowstone National Park</a></h1>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class="active"><a href="#">Right Button Active</a></li>
+            <li class="has-dropdown">
+              <a href="#">Right Button Dropdown</a>
+              <ul class="dropdown">
+                <li><a href="#">First link in dropdown</a></li>
+                <li class="active"><a href="#">Active link in dropdown</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </header>
+
+    <div class="l-main">
+      <div id="speciesView"></div>
+    </div>
+
+    <!-- build:js scripts/main.js -->
+      <script src="bower_components/requirejs/require.js"></script>
+      <script src="scripts/config.js"></script>
+      <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

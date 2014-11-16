@@ -28,6 +28,8 @@
     "text": "~2.0.12",
     "handlebars": "~2.0.0",
     "moment": "~2.8.3",
-    "almond": "~0.3.0"
+    "almond": "~0.3.0",
+    "foundation": "~5.4.7",
+    "modernizr": "~2.8.3"
   }
 }
