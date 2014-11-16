@@ -20,7 +20,6 @@ define([
       var deferred = new $.Deferred();
       this.currentParkId = parkId;
       this.fetch({
-        url: this.url(),
         success: deferred.resolve,
         error: function(err) {
           throw err.textStatus;

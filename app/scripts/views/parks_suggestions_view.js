@@ -14,8 +14,7 @@ define([
     el: '#parksSuggestionView',
 
     events: {
-      'submit form': 'changePark',
-      'autocomplete input': 'changePark'
+      'submit form': 'changePark'
     },
 
     template: Handlebars.compile(TPL),
@@ -40,11 +39,10 @@ define([
     },
 
     changePark: function(e) {
-      e.preventDefault();
       var value = $(e.currentTarget).find('input').val();
       var id = this.$el.find(_.str.sprintf('option[value="%s"]', value)).data('id');
-      // Backbone.Events.trigger('park:changeRoute', );
       window.location.hash = id;
+      e.preventDefault();
     }
 
   });

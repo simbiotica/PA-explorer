@@ -2,9 +2,10 @@ define([
   'underscore',
   'backbone',
   'handlebars',
+  'models/specie_model',
   'collections/species_collection',
   'text!templates/species_list_tpl.handlebars'
-], function(_, Backbone, Handlebars, SpeciesCollection, TPL) {
+], function(_, Backbone, Handlebars, SpecieModel, SpeciesCollection, TPL) {
 
   'use strict';
 
@@ -15,6 +16,7 @@ define([
     template: Handlebars.compile(TPL),
 
     initialize: function() {
+      this.model = new SpecieModel();
       this.collection = new SpeciesCollection();
       this.setListeners();
     },
@@ -34,7 +36,17 @@ define([
             species: collection.toJSON()
           };
           this.render();
+          this.getImages();
         }, this));
+    },
+
+    getImages: function() {
+      _.each(this.data.species, function(specie) {
+        this.model.getById(specie.iucn_species_id)
+          .done(_.bind(function(data) {
+            console.log(data);
+          }, this));
+      }, this);
     }
 
   });
