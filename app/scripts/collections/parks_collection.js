@@ -7,14 +7,12 @@ define([
 
   'use strict';
 
-  var SpeciesCollection = Backbone.Collection.extend({
+  var ParksCollection = Backbone.Collection.extend({
 
-    url: function() {
-      return _.str.sprintf('http://dopa-services.jrc.ec.europa.eu/services/especies/get_pa_species_list_validated?wdpa_id=%s', this.currentParkId);
-    },
+    url: 'https://wri-01.cartodb.com/api/v2/sql?q=SELECT%20name,iso3,wdpaid%20FROM%20protected_areas%20where%20desig_eng=%27World%20Heritage%20Site%27%20and%20marine=%270%27%20order%20by%20name%20asc',
 
     parse: function(data) {
-      return data.records;
+      return data.rows;
     },
 
     getByParkId: function(parkId) {
@@ -31,6 +29,6 @@ define([
 
   });
 
-  return SpeciesCollection;
+  return ParksCollection;
 
 });

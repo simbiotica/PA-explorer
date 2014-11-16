@@ -1,5 +1,8 @@
-<ul class="side-nav">
+<ul class="medium-block-grid-4">
   {{#each species}}
-    <li><a href="#specie/{{iucn_species_id}}">{{commonname}}, {{taxon}}</a></li>
+    <li>
+      <h2>{{commonname}}</h2>
+      <h3>{{taxon}}</h3>
+    </li>
   {{/each}}
 </ul>

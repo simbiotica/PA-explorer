@@ -9,6 +9,7 @@
     <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
     <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png"> -->
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css">
     <!-- build:css(.tmp) styles/main.css -->
       <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
       <link rel="stylesheet" href="bower_components/foundation/css/foundation.css">
@@ -19,31 +20,90 @@
   <body>
 
     <header class="l-header">
-      <nav class="top-bar" data-topbar role="navigation">
-        <ul class="title-area">
-          <li class="name">
-            <h1><a href="#">Yellowstone National Park</a></h1>
-          </li>
-        </ul>
-        <section class="top-bar-section">
-          <ul class="right">
-            <li class="active"><a href="#">Right Button Active</a></li>
-            <li class="has-dropdown">
-              <a href="#">Right Button Dropdown</a>
-              <ul class="dropdown">
-                <li><a href="#">First link in dropdown</a></li>
-                <li class="active"><a href="#">Active link in dropdown</a></li>
-              </ul>
+      <div class="contain-to-grid">
+        <nav class="top-bar" data-topbar role="navigation">
+          <ul class="title-area">
+            <li class="name">
+              <h1><a href="#">species &amp; parks</a></h1>
             </li>
           </ul>
-        </section>
-      </nav>
+        </nav>
+      </div>
     </header>
 
     <div class="l-main">
-      <div id="speciesView"></div>
+      <div class="row">
+        <div class="medium-12 columns">
+          <div id="parkView"></div>
+        </div>
+        <div class="medium-12 columns">
+          <div id="parksSuggestionView"></div>
+        </div>
+        <div class="medium-12 columns">
+          <dl class="tabs" data-tab>
+            <dd class="active"><a href="#mapPanel">Map</a></dd>
+            <dd><a href="#speciesPanel">Species</a></dd>
+            <dd><a href="#photoPanel">Photos</a></dd>
+            <dd><a href="#socialPanel">Social</a></dd>
+          </dl>
+          <div class="tabs-content">
+            <div class="content active" id="mapPanel">
+              <div id="toolbarView" class="mod-toolbar">
+                <div class="row">
+                  <div class="medium-2 columns">
+                    <input id="landslidesLayer" data-type="wms" data-layer="landslides" type="checkbox">
+                    <label for="landslidesLayer">Landslides</label>
+                  </div>
+                  <div class="medium-2 columns">
+                    <input id="firesLayer" data-type="cartodb" data-layer="fires" type="checkbox">
+                    <label for="firesLayer">Fires</label>
+                  </div>
+                  <div class="medium-3 columns">
+                    <input id="protectedAreasLayer" data-type="cartodb" data-layer="protected_areas" type="checkbox">
+                    <label for="protectedAreasLayer">Protected areas</label>
+                  </div>
+                  <div class="medium-2 columns">
+                    <input id="weatherLayer" data-type="tile" data-layer="weather" type="checkbox">
+                    <label for="weatherLayer">Rain</label>
+                  </div>
+                  <div class="medium-2 columns">
+                    <input id="digitalGlobeLayer" data-type="wms" data-layer="digitalglobe" type="checkbox">
+                    <label for="digitalGlobeLayer">Digital Globe</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="medium-12 columns">
+                  <div id="mapView" class="mod-map"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="medium-4 columns">
+                  <div id="analysisView">AQUI ADRIAN :)</div>
+                </div>
+              </div>
+            </div>
+            <div class="content" id="speciesPanel">
+              <div id="speciesView"></div>
+            </div>
+            <div class="content" id="photoPanel">
+            </div>
+            <div class="content" id="socialPanel">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <footer>
+      <div class="row">
+        <div class="medium-4 columns">
+          links
+        </div>
+      </div>
+    </footer>
+
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
     <!-- build:js scripts/main.js -->
       <script src="bower_components/requirejs/require.js"></script>
       <script src="scripts/config.js"></script>

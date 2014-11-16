@@ -16,7 +16,11 @@ define([
 
     initialize: function() {
       this.collection = new SpeciesCollection();
-      this.getData(2013); // Yellowstone ID
+      this.setListeners();
+    },
+
+    setListeners: function() {
+      Backbone.Events.on('park:change', this.getData, this);
     },
 
     render: function() {

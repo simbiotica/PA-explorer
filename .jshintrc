@@ -25,6 +25,8 @@
   "expr": true,
 
   "predef": [
-    "define"
+    "define",
+    "cartodb",
+    "L"
   ]
 }
