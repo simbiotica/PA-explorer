@@ -43,7 +43,7 @@ define([
         landslides: {
           url: 'http://preview.grid.unep.ch/geoserver/wms',
           options: {
-            layers: 'preview:lc_pr',
+            layers: 'preview:ls_pr',
             CONNECTID: '1c800d25-9c83-43a9-af2f-4d6dfc816d0f',
             format: 'image/png',
             transparent: true,
