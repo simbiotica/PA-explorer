@@ -36,7 +36,7 @@ define([
             species: collection.toJSON()
           };
           this.render();
-          this.getImages();
+          // this.getImages();
         }, this));
     },
 

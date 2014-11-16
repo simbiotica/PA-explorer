@@ -138,7 +138,11 @@ define([
     },
 
     setCartoDBLayer: function(layerSlug) {
-      this._layers[layerSlug] = cartodb.createLayer(this.map, this.layers.cartodb[layerSlug]).addTo(this.map);
+      var options = this.layers.cartodb[layerSlug];
+      if (layerSlug === 'protected_areas') {
+        options.sublayers[0].sql = _.str.sprintf('select * from protected_areas where wdpaid=\'%s\'', this.currentParkId);
+      }
+      this._layers[layerSlug] = cartodb.createLayer(this.map, options).addTo(this.map);
     },
 
     removeLayer: function(layerSlug) {
@@ -149,6 +153,7 @@ define([
 
     fitBounds: function(parkId) {
       var query, geojsonLayer;
+      this.currentParkId = parkId;
       this.model.getByParkId(parkId)
         .done(_.bind(function(parkData) {
           query = _.str.sprintf(BoundsSQL, parkData.toJSON().get_pa_bbox);
@@ -156,6 +161,7 @@ define([
             .done(_.bind(function(boundsGeoJSONData) {
               geojsonLayer = L.geoJson(JSON.parse(boundsGeoJSONData.rows[0].bounds));
               this.map.fitBounds(geojsonLayer.getBounds());
+              this.setCartoDBLayer('protected_areas');
             }, this));
         }, this));
     }
