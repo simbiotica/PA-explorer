@@ -36,11 +36,11 @@ define([
           this.data = {
             species: collection.toJSON()
           };
-          this.getImages()
-            .done(_.bind(function() {
-              console.log(this.data);
-              this.render();
-            }, this));
+          this.render();
+          // this.getImages()
+          //   .done(_.bind(function() {
+          //     this.render();
+          //   }, this));
         }, this));
     },
 

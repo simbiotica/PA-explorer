@@ -20,7 +20,6 @@ define([
     },
 
     render: function() {
-      console.log(this.data);
       this.$el.html(this.template(this.data));
     },
 
