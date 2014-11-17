@@ -3,13 +3,14 @@ require([
   'foundation',
   'backbone',
   'router',
+  'views/tabs_view',
   'views/toolbar_view',
   'views/park_view',
   'views/photos_view',
   'views/parks_suggestions_view',
   'views/map_view',
   'views/species_view'
-], function($, foundation, Backbone, Router, ToolbarView, ParkView, PhotosView, ParksSuggestionsView, MapView, SpeciesView) {
+], function($, foundation, Backbone, Router, TabsView, ToolbarView, ParkView, PhotosView, ParksSuggestionsView, MapView, SpeciesView) {
 
   'use strict';
 
@@ -17,6 +18,7 @@ require([
   $(document).foundation();
 
   // Application initialization
+  new TabsView();
   new ToolbarView();
   new ParksSuggestionsView();
   new ParkView();

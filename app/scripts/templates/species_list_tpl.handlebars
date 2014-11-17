@@ -1,13 +1,22 @@
-<ul class="medium-block-grid-4">
+<ul class="medium-block-grid-3">
   {{#each species}}
     <li>
-      <div>
-        {{!-- <img src="{{media.eolMediaURL}}"> --}}
-        {{#if media}}
-          <img class="th" src="{{media.eolThumbnailURL}}">
-        {{/if}}
-        <h3>{{commonname}}</h3>
-        <p>{{taxon}}</p>
+      <div class="mod-panel">
+        <figure>
+          <div class="thumb">
+          {{!-- {{#if media}}
+            <img class="th" src="{{media.eolThumbnailURL}}">
+          {{/if}} --}}
+          </div>
+          <figcaption>
+            {{#if commonname}}<h2>{{commonname}}</h2>{{/if}}
+            <p><strong>Scientific name:</strong> {{taxon}}<p>
+            <p><strong>Status validated:</strong> {{validatedName}}</p>
+            <p><strong>Presence:</strong> {{presence}}</p>
+            <p><strong>Status:</strong> {{statusName}}</p>
+            <p><strong>Assessed:</strong> {{assessedParsed}}</p>
+          </figcaption>
+        </figure>
       </div>
     </li>
   {{/each}}

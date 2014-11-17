@@ -1,0 +1,41 @@
+.contain-to-grid
+  background-color #008C69
+
+.top-bar
+  height 84px
+  background-color transparent
+  .title-area
+    margin 15px 0
+    .name
+      height 54px
+      img
+        display block
+
+// Tabs
+.tabs
+  display flex
+  justify-content space-between
+  border-top 1px solid #ddd
+  border-left 1px solid #ddd
+  border-bottom 1px solid #ddd
+  dd
+    border-right 1px solid #ddd
+    float none
+    flex 1
+    text-align center
+
+.tabs dd > a, .tabs .tab-title > a
+  color #888
+  padding 7px 20px
+
+.tabs dd.active a, .tabs .tab-title.active a
+  color #85B200
+
+.tabs-content
+  margin-top 1rem
+
+  #mapPanel
+    background-color #fff
+    padding 10px
+    border 1px solid #ddd
+    border-radius 5px

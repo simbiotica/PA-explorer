@@ -14,7 +14,8 @@ define([
     el: '#parksSuggestionView',
 
     events: {
-      'submit form': 'changePark'
+      'submit form': 'changePark',
+      'keyup input': 'onSelectPark'
     },
 
     template: Handlebars.compile(TPL),
@@ -31,6 +32,15 @@ define([
 
     setListeners: function() {
       Backbone.Events.on('park:info', this.setValue, this);
+    },
+
+    onSelectPark: function(e) {
+      if (e.keyCode === 13) {
+        var value = $(e.currentTarget).val();
+        var id = this.$el.find(_.str.sprintf('option[value="%s"]', value)).data('id');
+        window.location.hash = id;
+        e.preventDefault();
+      }
     },
 
     getData: function(parkId) {

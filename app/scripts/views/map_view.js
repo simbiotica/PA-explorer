@@ -96,20 +96,26 @@ define([
       this._layers = {};
       this.sql = new cartodb.SQL(this.options.cartodb);
       this.model = new BboxModel();
-      this.createMap();
-      this.setBasemap();
       this.setListeners();
     },
 
+    start: function(parkId) {
+      this.createMap();
+      this.fitBounds(parkId);
+    },
+
     createMap: function() {
-      this.map = L.map(this.el, {
-        center: [0, 0],
-        zoom: 4
-      });
+      if (!this.map) {
+        this.map = L.map(this.el, {
+          center: [0, 0],
+          zoom: 4
+        });
+        this.setBasemap();
+      }
     },
 
     setListeners: function() {
-      Backbone.Events.on('park:change', this.fitBounds, this);
+      Backbone.Events.on('park:change', this.start, this);
       Backbone.Events.on('layer:change', this.setLayer, this);
     },
 

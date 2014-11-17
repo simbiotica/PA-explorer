@@ -15,6 +15,7 @@ define([
 
     changeLayer: function(e) {
       var $current = $(e.currentTarget);
+      this.$el.removeClass('is-hidden');
       Backbone.Events.trigger('layer:change', {
         slug: $current.data('layer'),
         type: $current.data('type'),

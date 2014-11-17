@@ -1,5 +1,7 @@
 <form action="#">
-  <input type="text" name="parks" list="parks">
+  <label>
+    <input type="text" placeholder="Name of the park" name="parks" list="parks">
+  </label>
   <datalist id="parks">
     {{#each parks}}
       <option value="{{name}}" data-id="{{wdpaid}}">

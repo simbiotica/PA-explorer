@@ -24,7 +24,7 @@
         <nav class="top-bar" data-topbar role="navigation">
           <ul class="title-area">
             <li class="name">
-              <h1><a href="#">species &amp; parks</a></h1>
+              <h1><a href="#"><img src="images/logo.png" width="231" height="54"></a></h1>
             </li>
           </ul>
         </nav>
@@ -36,7 +36,7 @@
         <div class="medium-12 columns">
           <div id="parksSuggestionView"></div>
         </div>
-        <div class="medium-12 columns">
+        <div class="medium-12 columns is-hidden" id="tabsView">
           <dl class="tabs" data-tab>
             <dd class="active"><a href="#mapPanel">Map</a></dd>
             <dd><a href="#speciesPanel">Species</a></dd>
@@ -79,6 +79,7 @@
               </div>
               <div class="row">
                 <div class="medium-4 columns">
+                  <h2>General information</h2>
                   <div id="parkView"></div>
                 </div>
                 <div class="medium-4 columns">
@@ -99,6 +100,14 @@
         </div>
       </div>
     </div>
+
+    <footer class="l-footer">
+      <div class="row">
+        <div class="medium-12 columns">
+          <p>#ecohack · #ecohackmadrid</p>
+        </div>
+      </div>
+    </footer>
 
     <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
     <!-- build:js scripts/main.js -->
