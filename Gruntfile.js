@@ -119,6 +119,17 @@ module.exports = function(grunt) {
       },
     },
 
+    imagemin: {
+      compile: {
+        files: [{
+          expand: true,
+          cwd: '<%= root.app %>/images/',
+          src: ['**/*.{png,jpg,gif}'],
+          dest: '<%= root.dist %>/images'
+        }]
+      }
+    },
+
     useminPrepare: {
       options: {
         dest: '<%= root.dist %>',
@@ -217,6 +228,7 @@ module.exports = function(grunt) {
     'copy:dist',
     'stylus',
     'requirejs',
+    'imagemin',
     'cssmin',
     'usemin',
     'htmlmin'
