@@ -168,8 +168,10 @@ define([
             .done(_.bind(function(boundsGeoJSONData) {
               geojsonLayer = L.geoJson(JSON.parse(boundsGeoJSONData.rows[0].bounds));
               bounds = geojsonLayer.getBounds();
-              this.map.fitBounds(bounds);
               this.setCartoDBLayer('protected_areas');
+              setTimeout(_.bind(function() {
+                this.map.fitBounds(bounds);
+              }, this), 300);
               Backbone.Events.trigger('park:bounds', bounds);
             }, this));
         }, this));
