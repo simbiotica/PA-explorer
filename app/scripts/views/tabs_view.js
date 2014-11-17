@@ -14,11 +14,16 @@ define([
     },
 
     setListeners: function() {
-      Backbone.Events.on('park:change', this.start, this);
+      Backbone.Events.on('park:hidden', this.hide, this);
+      Backbone.Events.on('park:change', this.show, this);
     },
 
-    start: function() {
+    show: function() {
       this.$el.removeClass('is-hidden');
+    },
+
+    hide: function() {
+      this.$el.addClass('is-hidden');
     }
 
   });
