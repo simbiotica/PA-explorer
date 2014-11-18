@@ -19,7 +19,8 @@ define([
     },
 
     basemap: {
-      url: 'https://{s}.tiles.mapbox.com/v4/smbtc.k86mffol/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic21idGMiLCJhIjoiVXM4REppNCJ9.pjaLujYj-fcCPv5evG_0uA#4/34.38/-5.98'
+      url: 'https://{s}.tiles.mapbox.com/v4/smbtc.k86mffol/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic21idGMiLCJhIjoiVXM4REppNCJ9.pjaLujYj-fcCPv5evG_0uA#4/34.38/-5.98',
+      attribution: 'Mapbox'
       // url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
     },
 
