@@ -23,6 +23,15 @@ define([
       this.$el.html(this.template(this.data));
     },
 
+    setBg: function() {
+      var len = this.data.photos.length;
+      var random = Math.floor(Math.random() * len);
+      if (len > 0) {
+        var photoName = this.data.photos[random].photo_file_url.split('medium/')[1];
+        $('.l-bg').css('background-image', 'url(http://static.panoramio.com/photos/large/' + photoName + ')');
+      }
+    },
+
     setListeners: function() {
       Backbone.Events.on('park:bounds', this.getData, this);
     },
@@ -34,6 +43,7 @@ define([
             photos: data.toJSON()
           };
           this.render();
+          this.setBg();
         }, this));
     }
 
