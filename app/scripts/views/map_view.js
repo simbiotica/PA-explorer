@@ -28,6 +28,7 @@ define([
       tiles: {
         weather: {
           url: 'http://{s}.tile.openweathermap.org/map/precipitation/{z}/{x}/{y}.png',
+          opacity: 0.5,
           attribution: 'Open Weather Map'
         }
       },
