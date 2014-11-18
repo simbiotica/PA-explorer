@@ -25,7 +25,7 @@ define([
 
     setBg: function() {
       var len = this.data.photos.length;
-      var random = Math.floor(Math.random() * len);
+      var random = _.random(0, len-1);
       if (len > 0) {
         var photoName = this.data.photos[random].photo_file_url.split('medium/')[1];
         $('.l-bg').css('background-image', 'url(http://static.panoramio.com/photos/large/' + photoName + ')');
